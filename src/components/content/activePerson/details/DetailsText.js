@@ -18,7 +18,7 @@ const DetailsText = () => {
         <Label>Average Rating:</Label> 7.0
       </Detail>
       <ImdbLink tabIndex="-1" href="imdb.com" target="_blank">
-        <Btn role="link">IMDB</Btn>
+        <Btn role="link">IMDb</Btn>
       </ImdbLink>
     </Wrapper>
   );
