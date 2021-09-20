@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import Btn from '../Btn';
+import SearchInput from './SearchInput';
 
 const SearchForm = () => {
   return (
     <WrapperForm>
-      <input />
+      <SearchInput />
       <Btn type="submit">Search</Btn>
     </WrapperForm>
   );
