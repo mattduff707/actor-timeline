@@ -19,11 +19,18 @@ const Wrapper = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: 500px) {
+    height: 100px;
+  }
 `;
 const Title = styled(Heading)`
   font-size: 3rem;
   color: ${(props) => props.theme.colors.highlightPrimary};
   padding-bottom: 10px;
+  @media (max-width: 500px) {
+    font-size: 1.8rem;
+    padding-bottom: 5px;
+  }
 `;
 
 export default Header;
