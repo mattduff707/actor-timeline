@@ -2,6 +2,7 @@ import Header from './layout/Header';
 import Content from './layout/Content';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from './constants';
+// import useFetch from './hooks/useFetch';
 
 const GlobalStyle = createGlobalStyle`
 body {

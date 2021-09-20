@@ -1,7 +1,8 @@
 import React from 'react';
+import SearchResultsList from '../components/content/searchResults/SearchResultsList';
 
 const Content = () => {
-  return <div></div>;
+  return <SearchResultsList />;
 };
 
 export default Content;
