@@ -15,7 +15,18 @@ const StyledBtn = styled.button`
   padding: 5px 10px;
   font-family: inherit;
   font-size: 1rem;
-  font-weight: bold;
+ font-weight: bold;
+  &:focus {
+    outline: 2px solid ${(props) => props.theme.colors.highlightSecondary};
+  }
+  &:hover {
+    background-color: ${(props) => props.theme.colors.highlightPrimary};
+    color: ${(props) => props.theme.colors.primaryLight};
+    border: 4px solid ${(props) => props.theme.colors.highlightSecondary};
+  }
+
+ 
+
 `;
 
 export default Btn;
