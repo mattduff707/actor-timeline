@@ -19,9 +19,10 @@ const StyledBtn = styled.button`
   &:focus {
     outline: 2px solid ${(props) => props.theme.colors.highlightSecondary};
   }
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${(props) => props.theme.colors.highlightPrimary};
-    color: ${(props) => props.theme.colors.primaryLight};
+    color: white;
     border: 4px solid ${(props) => props.theme.colors.highlightPrimary};
   }
 `;

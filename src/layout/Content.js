@@ -1,8 +1,13 @@
 import React from 'react';
-import SearchResultsList from '../components/content/searchResults/SearchResultsList';
+// import SearchResultsList from '../components/content/searchResults/SearchResultsList';
+import ActivePerson from '../components/content/activePerson/ActivePerson';
 
 const Content = () => {
-  return <SearchResultsList />;
+  return (
+    <main>
+      <ActivePerson />
+    </main>
+  );
 };
 
 export default Content;

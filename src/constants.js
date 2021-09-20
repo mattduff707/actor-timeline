@@ -4,7 +4,7 @@ export const theme = {
     primaryLight: 'hsl(208, 64%, 91%)',
     primaryNeutral: 'hsl(215, 28%, 47%)',
     primaryDark: 'hsl(210, 18%, 31%)',
-    highlightPrimary: 'hsl(4, 99%, 66%)',
+    highlightPrimary: 'hsl(4, 80%, 60%)',
     highlightSecondary: 'hsl(58, 100%, 72%)',
   },
   fonts: {
