@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import SearchForm from '../components/header/SearchForm';
 import Heading from '../components/Heading';
 
-const Header = () => {
+const Header = ({ handleSearch }) => {
   return (
     <Wrapper>
       <Title tag="h1">Actor Timeline</Title>
-      <SearchForm />
+      <SearchForm handleSearch={handleSearch} />
     </Wrapper>
   );
 };

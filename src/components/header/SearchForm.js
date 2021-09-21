@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import Btn from '../Btn';
 import SearchInput from './SearchInput';
 
-const SearchForm = () => {
+const SearchForm = ({ handleSearch }) => {
   return (
-    <WrapperForm>
+    <WrapperForm onSubmit={handleSearch}>
       <SearchInput />
       <SearchBtn type="submit">Search</SearchBtn>
     </WrapperForm>

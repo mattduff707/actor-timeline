@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const searchInput = ({ className }) => {
-  return <SearchBar className={className} type="text"></SearchBar>;
+  return <SearchBar autoComplete="off" name="search" className={className} type="text"></SearchBar>;
 };
 
 const SearchBar = styled.input`
