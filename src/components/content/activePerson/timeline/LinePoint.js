@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const LinePoint = () => {
+const LinePoint = ({ handleClick, isOpen }) => {
   return (
-    <Wrapper>
-      <Point />
+    <Wrapper isOpen={isOpen}>
+      <Point onClick={handleClick} />
     </Wrapper>
   );
 };
@@ -13,14 +13,18 @@ const Wrapper = styled.div`
   /* border: 2px solid red; */
   display: flex;
   align-items: center;
+  @media (max-width: 1024px) {
+    display: ${(props) => (props.isOpen ? 'none' : 'flex')};
+  }
 `;
 const Point = styled.button`
   width: 30px;
   height: 30px;
-  border: 6px solid hsl(210, 18%, 31%);
+  border: 6px solid ${(props) => props.theme.colors.primaryDark};
   border-radius: 50%;
-  background-color: hsl(215, 28%, 47%);
+  background-color: ${(props) => props.theme.colors.primaryNeutral};
   z-index: 1;
+  cursor: pointer;
 `;
 
 export default LinePoint;

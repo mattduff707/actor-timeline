@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import Heading from '../../../Heading';
 
-const MovieDetailsBox = ({ isLeft }) => {
+const MovieDetailsBox = ({ isLeft, isOpen }) => {
   return (
-    <Wrapper isLeft={isLeft}>
-      {!isLeft && <Connector />}
-      <DetailsBox>
+    <Wrapper isOpen={isOpen} isLeft={isLeft}>
+      {!isLeft && <Connector isOpen={isOpen} />}
+      <DetailsBox isOpen={isOpen}>
         {!isLeft && <Image />}
         <Container isLeft={isLeft}>
           <MovieTitle>Dr Strangelove: How I learned to love the bomb or whatever</MovieTitle>
@@ -22,7 +22,7 @@ const MovieDetailsBox = ({ isLeft }) => {
         </Container>
         {isLeft && <Image />}
       </DetailsBox>
-      {isLeft && <Connector />}
+      {isLeft && <Connector isOpen={isOpen} />}
     </Wrapper>
   );
 };
@@ -33,17 +33,24 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
   align-items: center;
+  @media (max-width: 1024px) {
+    width: ${(props) => (props.isOpen ? 'auto' : '50%')};
+  }
 `;
 const Connector = styled.div`
   height: 6px;
   width: 60px;
   background-color: ${(props) => props.theme.colors.primaryDark};
+  display: ${(props) => (props.isOpen ? 'visible' : 'none')};
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 const DetailsBox = styled.div`
   height: 100%;
   border: 6px solid ${(props) => props.theme.colors.primaryDark};
   background-color: ${(props) => props.theme.colors.primaryLight};
-  display: flex;
+  display: ${(props) => (props.isOpen ? 'flex' : 'none')};
   align-items: center;
   padding: 0px 10px;
   max-width: 500px;

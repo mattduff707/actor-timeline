@@ -29,6 +29,9 @@ const Wrapper = styled.div`
   flex-direction: column;
   padding-left: 20px;
   /* border: 2px solid red; */
+  @media (max-width: 768px) {
+    padding-left: 0px;
+  }
 `;
 const Name = styled(Heading)`
   color: ${(props) => props.theme.colors.highlightPrimary};

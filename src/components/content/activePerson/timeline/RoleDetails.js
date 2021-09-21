@@ -1,15 +1,21 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import LinePoint from './LinePoint';
 import MovieLabel from './MovieLabel';
 import MovieDetailsBox from './MovieDetailsBox';
 
 const RoleDetails = ({ isLeft }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(() => !isOpen);
+  };
+
   return (
     <Wrapper>
-      {isLeft ? <MovieDetailsBox isLeft={isLeft} /> : <MovieLabel />}
-      <LinePoint />
-      {isLeft ? <MovieLabel isLeft={isLeft} /> : <MovieDetailsBox />}
+      {isLeft ? <MovieDetailsBox isOpen={isOpen} isLeft={isLeft} /> : <MovieLabel isOpen={isOpen} />}
+      <LinePoint isOpen={isOpen} handleClick={handleClick} />
+      {isLeft ? <MovieLabel isOpen={isOpen} isLeft={isLeft} /> : <MovieDetailsBox isOpen={isOpen} />}
     </Wrapper>
   );
 };
