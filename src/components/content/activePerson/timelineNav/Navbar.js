@@ -13,6 +13,7 @@ const Nav = styled.nav`
   min-width: 100%;
   position: sticky;
   top: 0px;
+  z-index: 20;
 `;
 
 export default Navbar;
