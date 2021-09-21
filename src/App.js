@@ -3,7 +3,6 @@ import Header from './layout/Header';
 import Content from './layout/Content';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from './constants';
-// import useFetch from './hooks/useFetch';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -23,18 +22,14 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const searchFetch = async (searchVal) => {
+  const fetchData = async (url) => {
     setIsLoading(true);
     setError(false);
     try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchVal}&page=1&include_adult=false`
-      );
+      const response = await fetch(url);
       if (response.ok) {
         const json = await response.json();
-        const { results } = json;
-        setSearchResults(() => results);
-        console.log(searchResults);
+        return json;
       } else {
         throw response;
       }
@@ -44,11 +39,20 @@ function App() {
       setIsLoading(false);
     }
   };
-
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    searchFetch(e.target.search.value);
+    const newSearchVal = e.target.search.value.replace(' ', '%20');
+    const url = `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${newSearchVal}&page=1&include_adult=false`;
+    const { results } = await fetchData(url);
+    setSearchResults(() => results);
     setIsSearched(true);
+  };
+
+  const getPerson = async (id) => {
+    const url = `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+    const data = await fetchData(url);
+    setIsSearched(false);
+    return data;
   };
 
   return (
@@ -56,7 +60,15 @@ function App() {
       <Wrapper>
         <GlobalStyle />
         <Header handleSearch={handleSearch} />
-        <Content error={error} isLoading={isLoading} searchResults={searchResults} isSearched={isSearched} />
+        <main>
+          <Content
+            error={error}
+            isLoading={isLoading}
+            searchResults={searchResults}
+            isSearched={isSearched}
+            getPerson={getPerson}
+          />
+        </main>
       </Wrapper>
     </ThemeProvider>
   );
