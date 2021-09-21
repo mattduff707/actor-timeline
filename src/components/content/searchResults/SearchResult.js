@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 
-const SearchResult = () => {
+const SearchResult = ({ name, picture, personId, getPerson, setActivePerson }) => {
+  const imageUrl = `https://image.tmdb.org/t/p/original`;
+
+  const handleClick = async () => {
+    const person = await getPerson(personId);
+    setActivePerson(() => person);
+  };
+
   return (
     <li>
-      <ButtonWrapper>
-        <Image />
-        <Name>Result</Name>
+      <ButtonWrapper onClick={handleClick}>
+        {picture ? <Image src={imageUrl + picture} /> : <NoPicture>No Picture</NoPicture>}
+        <Name>{name}</Name>
       </ButtonWrapper>
     </li>
   );
@@ -27,10 +34,20 @@ const ButtonWrapper = styled.button`
     outline: none;
   }
 `;
-const Image = styled.div`
+const Image = styled.img`
   height: 100px;
   width: 80px;
   background-color: gray;
+`;
+const NoPicture = styled.div`
+  height: 100px;
+  width: 80px;
+  background-color: ${(props) => props.theme.colors.primaryDark};
+  color: ${(props) => props.theme.colors.highlightPrimary};
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const Name = styled.p`
   padding-left: 10px;

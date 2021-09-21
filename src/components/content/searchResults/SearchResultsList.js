@@ -1,28 +1,22 @@
 import styled from 'styled-components';
 import SearchResult from './SearchResult';
 
-const SearchResultsList = () => {
+const SearchResultsList = ({ searchResults, getPerson, setActivePerson }) => {
   return (
     <Wrapper>
       <List>
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
-        <SearchResult />
+        {searchResults.map((result, index) => {
+          return (
+            <SearchResult
+              key={index + result.name}
+              name={result.name}
+              picture={result.profile_path}
+              getPerson={getPerson}
+              setActivePerson={setActivePerson}
+              personId={result.id}
+            />
+          );
+        })}
       </List>
     </Wrapper>
   );
