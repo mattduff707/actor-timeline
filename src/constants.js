@@ -11,3 +11,5 @@ export const theme = {
     primary: "'Lora', serif",
   },
 };
+
+export const imageUrl = `https://image.tmdb.org/t/p/original`;

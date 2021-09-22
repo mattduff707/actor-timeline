@@ -1,8 +1,7 @@
 import styled from 'styled-components';
+import { imageUrl } from '../../../constants';
 
 const SearchResult = ({ name, picture, personId, getPerson, setActivePerson }) => {
-  const imageUrl = `https://image.tmdb.org/t/p/original`;
-
   const handleClick = async () => {
     const person = await getPerson(personId);
     setActivePerson(() => person);
@@ -36,12 +35,12 @@ const ButtonWrapper = styled.button`
 `;
 const Image = styled.img`
   height: 100px;
-  width: 80px;
+  width: 66px;
   background-color: gray;
 `;
 const NoPicture = styled.div`
   height: 100px;
-  width: 80px;
+  width: 66px;
   background-color: ${(props) => props.theme.colors.primaryDark};
   color: ${(props) => props.theme.colors.highlightPrimary};
   font-weight: bold;

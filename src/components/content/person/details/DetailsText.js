@@ -3,21 +3,21 @@ import styled from 'styled-components';
 import Heading from '../../../Heading';
 import Btn from '../../../Btn';
 
-const DetailsText = () => {
+const DetailsText = ({ name, placeOfBirth, birthday, imdb, movieCredits, averageRating }) => {
   return (
     <Wrapper>
-      <Name tag="h2">Brad Pitt</Name>
+      <Name tag="h2">{name}</Name>
       <Detail>
-        <Label>Born:</Label> December 18, 1963 (age 57)
-        <br /> Shawnee, Oklahoma, U.S.
+        <Label>Born:</Label> {birthday}
+        <br /> {placeOfBirth}
       </Detail>
       <Detail>
-        <Label>Roles:</Label> 200
+        <Label>Roles:</Label> {movieCredits.length}
       </Detail>
       <Detail>
-        <Label>Average Rating:</Label> 7.0
+        <Label>Average Rating:</Label> {averageRating.toFixed(2)}
       </Detail>
-      <ImdbLink tabIndex="-1" href="imdb.com" target="_blank">
+      <ImdbLink tabIndex="-1" href={`https://www.imdb.com/name/${imdb}`} target="_blank">
         <Btn role="link">IMDb</Btn>
       </ImdbLink>
     </Wrapper>
