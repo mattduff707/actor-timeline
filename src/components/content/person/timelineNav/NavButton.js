@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import Btn from '../../../Btn';
 
-const NavButton = () => {
+const NavButton = ({ year }) => {
   return (
-    <YearLink href="#id">
-      <YearBtn>Year</YearBtn>
+    <YearLink href="#year">
+      <YearBtn>{year}</YearBtn>
     </YearLink>
   );
 };
