@@ -4,7 +4,7 @@ import Btn from '../../../Btn';
 
 const NavButton = ({ year }) => {
   return (
-    <YearLink href="#year">
+    <YearLink href={`#${year}`}>
       <YearBtn>{year}</YearBtn>
     </YearLink>
   );

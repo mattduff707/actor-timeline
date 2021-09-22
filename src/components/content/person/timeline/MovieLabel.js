@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import Heading from '../../../Heading';
-const MovieLabel = ({ isLeft, isOpen }) => {
+const MovieLabel = ({ isLeft, isOpen, role }) => {
   return (
     <Wrapper isOpen={isOpen} isLeft={isLeft}>
       <MovieTitle isOpen={isOpen} as="h3">
-        Movie
+        {role.title}
       </MovieTitle>
       <MovieYear isOpen={isOpen} as="h4">
-        Year
+        {role.release_date}
       </MovieYear>
     </Wrapper>
   );
@@ -27,11 +27,12 @@ const Wrapper = styled.div`
 
 const MovieTitle = styled(Heading)`
   font-size: 1rem;
-
+  color: ${(props) => props.theme.colors.highlightPrimary};
   display: ${(props) => (props.isOpen ? 'none' : 'visible')};
 `;
 const MovieYear = styled(Heading)`
   font-size: 0.9rem;
+  color: ${(props) => props.theme.colors.primaryDark};
   display: ${(props) => (props.isOpen ? 'none' : 'visible')};
 `;
 

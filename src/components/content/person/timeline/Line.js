@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const Line = () => {
-  return <TimeLine />;
+const Line = ({ length }) => {
+  return <TimeLine length={length} />;
 };
 
 const TimeLine = styled.div`
   width: 6px;
-  height: 2000px;
+  height: ${(props) => `${props.length * 240}px`};
   background-color: ${(props) => props.theme.colors.primaryDark};
   position: absolute;
   top: 120px;

@@ -1,26 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import Heading from '../../../Heading';
+import MoviePoster from './MoviePoster';
+import { imageUrl } from '../../../../constants';
 
-const MovieDetailsBox = ({ isLeft, isOpen }) => {
+const MovieDetailsBox = ({ isLeft, isOpen, role }) => {
   return (
     <Wrapper isOpen={isOpen} isLeft={isLeft}>
       {!isLeft && <Connector isOpen={isOpen} />}
       <DetailsBox isOpen={isOpen}>
-        {!isLeft && <Image />}
+        {!isLeft && <MoviePoster src={imageUrl + role.poster_path} alt={role.title} isPoster={role.poster_path} />}
         <Container isLeft={isLeft}>
-          <MovieTitle>Dr Strangelove: How I learned to love the bomb or whatever</MovieTitle>
+          <MovieTitle>{role.title}</MovieTitle>
           <Detail>
-            <Highlight>Release:</Highlight> 10/24/1987
+            <Highlight>Release:</Highlight> {role.release_date}
           </Detail>
           <Detail>
-            <Highlight>Character:</Highlight> Johnny FleckStein
+            <Highlight>Character:</Highlight> {role.character}
           </Detail>
           <Detail>
-            <Highlight>Rating:</Highlight> 7.2
+            <Highlight>Rating:</Highlight> {role.vote_average}
           </Detail>
         </Container>
-        {isLeft && <Image />}
+        {isLeft && <MoviePoster src={imageUrl + role.poster_path} alt={role.title} isPoster={role.poster_path} />}
       </DetailsBox>
       {isLeft && <Connector isOpen={isOpen} />}
     </Wrapper>
@@ -57,12 +59,7 @@ const DetailsBox = styled.div`
   overflow-y: auto;
   /* max-width: 400px; */
 `;
-const Image = styled.div`
-  width: 120px;
-  height: 160px;
 
-  background-color: gray;
-`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
