@@ -2,39 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import NavButton from './NavButton';
 
-const NavList = () => {
+const NavList = ({ sortedMovieYears }) => {
   return (
     <WrapperList>
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
+      {sortedMovieYears.map((year, index) => (
+        <NavButton key={year + index} year={year} />
+      ))}
     </WrapperList>
   );
 };

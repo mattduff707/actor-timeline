@@ -5,10 +5,12 @@ import Navbar from './timelineNav/Navbar';
 import TimeLine from './timeline/TimeLine';
 
 const Person = ({ activePerson }) => {
+  const roles = activePerson.movie_credits.cast.filter((role) => role.release_date);
+
   return (
     <Wrapper>
       <Details activePerson={activePerson} />
-      <Navbar />
+      <Navbar roles={roles} />
       <TimeLine />
     </Wrapper>
   );
