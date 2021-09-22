@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const LinePoint = ({ handleClick, isOpen }) => {
   return (
     <Wrapper isOpen={isOpen}>
-      <Point onClick={handleClick} />
+      <Point isOpen={isOpen} onClick={handleClick} />
     </Wrapper>
   );
 };
@@ -22,9 +22,14 @@ const Point = styled.button`
   height: 30px;
   border: 6px solid ${(props) => props.theme.colors.primaryDark};
   border-radius: 50%;
-  background-color: ${(props) => props.theme.colors.primaryNeutral};
+  background-color: ${(props) =>
+    props.isOpen ? props.theme.colors.highlightPrimary : props.theme.colors.primaryNeutral};
   z-index: 1;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.highlightSecondary};
+  }
 `;
 
 export default LinePoint;

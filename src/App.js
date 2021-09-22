@@ -41,11 +41,15 @@ function App() {
   };
   const handleSearch = async (e) => {
     e.preventDefault();
-    const newSearchVal = e.target.search.value.replace(' ', '%20');
-    const url = `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${newSearchVal}&page=1&include_adult=false`;
-    const { results } = await fetchData(url);
-    setSearchResults(() => results);
-    setIsSearched(true);
+    const val = e.target.search.value;
+    const newSearchVal = val.replace(' ', '%20');
+
+    if (val !== '') {
+      const url = `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${newSearchVal}&page=1&include_adult=false`;
+      const { results } = await fetchData(url);
+      setSearchResults(() => results);
+      setIsSearched(true);
+    }
   };
 
   const getPerson = async (id) => {

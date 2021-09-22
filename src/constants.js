@@ -13,3 +13,11 @@ export const theme = {
 };
 
 export const imageUrl = `https://image.tmdb.org/t/p/original`;
+
+export function calculateAge(dob, date) {
+  const diff_ms = new Date(date) - new Date(dob).getTime();
+  const age_dt = new Date(diff_ms);
+  const age = Math.abs(age_dt.getUTCFullYear() - 1970);
+
+  return age;
+}

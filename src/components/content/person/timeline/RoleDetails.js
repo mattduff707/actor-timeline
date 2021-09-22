@@ -4,7 +4,7 @@ import LinePoint from './LinePoint';
 import MovieLabel from './MovieLabel';
 import MovieDetailsBox from './MovieDetailsBox';
 
-const RoleDetails = ({ isLeft, role }) => {
+const RoleDetails = ({ isLeft, role, age }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -14,17 +14,17 @@ const RoleDetails = ({ isLeft, role }) => {
   return (
     <Wrapper>
       {isLeft ? (
-        <MovieDetailsBox isOpen={isOpen} isLeft={isLeft} role={role} />
+        <MovieDetailsBox age={age} isOpen={isOpen} isLeft={isLeft} role={role} />
       ) : (
-        <MovieLabel role={role} isOpen={isOpen} />
+        <MovieLabel age={age} role={role} isOpen={isOpen} />
       )}
 
       <LinePoint isOpen={isOpen} handleClick={handleClick} />
 
       {isLeft ? (
-        <MovieLabel role={role} isOpen={isOpen} isLeft={isLeft} />
+        <MovieLabel age={age} role={role} isOpen={isOpen} isLeft={isLeft} />
       ) : (
-        <MovieDetailsBox role={role} isOpen={isOpen} />
+        <MovieDetailsBox age={age} role={role} isOpen={isOpen} />
       )}
     </Wrapper>
   );

@@ -4,7 +4,7 @@ import Heading from '../../../Heading';
 import MoviePoster from './MoviePoster';
 import { imageUrl } from '../../../../constants';
 
-const MovieDetailsBox = ({ isLeft, isOpen, role }) => {
+const MovieDetailsBox = ({ isLeft, isOpen, role, age }) => {
   return (
     <Wrapper isOpen={isOpen} isLeft={isLeft}>
       {!isLeft && <Connector isOpen={isOpen} />}
@@ -14,6 +14,9 @@ const MovieDetailsBox = ({ isLeft, isOpen, role }) => {
           <MovieTitle>{role.title}</MovieTitle>
           <Detail>
             <Highlight>Release:</Highlight> {role.release_date}
+          </Detail>
+          <Detail>
+            <Highlight>Age:</Highlight> {age}
           </Detail>
           <Detail>
             <Highlight>Character:</Highlight> {role.character}

@@ -26,7 +26,12 @@ const Person = ({ activePerson }) => {
     <Wrapper>
       <Details activePerson={activePerson} />
       <Navbar years={years} />
-      <TimeLine years={years} sortedRoles={sortedRoles} lineLength={sortedRoles.length - 1 + years.length} />
+      <TimeLine
+        years={years}
+        sortedRoles={sortedRoles}
+        lineLength={sortedRoles.length - 1 + years.length}
+        birthday={activePerson.birthday}
+      />
     </Wrapper>
   );
 };
