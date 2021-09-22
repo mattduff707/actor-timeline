@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import Heading from '../../../Heading';
 import Btn from '../../../Btn';
+import { calculateAge } from '../../../../constants';
 
 const DetailsText = ({ name, placeOfBirth, birthday, imdb, movieCredits, averageRating }) => {
+  const age = calculateAge(birthday, new Date());
   return (
     <Wrapper>
       <Name tag="h2">{name}</Name>
       <Detail>
-        <Label>Born:</Label> {birthday}
+        <Label>Born:</Label> {birthday} (Age: {age})
         <br /> {placeOfBirth}
       </Detail>
       <Detail>

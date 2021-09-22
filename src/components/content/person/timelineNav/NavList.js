@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import NavButton from './NavButton';
 
-const NavList = ({ sortedMovieYears }) => {
+const NavList = ({ years }) => {
   return (
     <WrapperList>
-      {sortedMovieYears.map((year, index) => (
+      {years.map((year, index) => (
         <NavButton key={year + index} year={year} />
       ))}
     </WrapperList>

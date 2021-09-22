@@ -1,18 +1,10 @@
 import styled from 'styled-components';
 import NavList from './NavList';
 
-const Navbar = ({ roles }) => {
-  const movieYears = roles.map((role) => role.release_date.slice(0, 4));
-  const filteredMovieYears = movieYears.filter((year, index) => movieYears.indexOf(year) === index);
-  const sortedMovieYears = filteredMovieYears
-    .map((year) => parseInt(year))
-    .filter((year) => !isNaN(year))
-    .sort((a, b) => a - b);
-  console.log(sortedMovieYears);
-
+const Navbar = ({ years }) => {
   return (
     <Nav>
-      <NavList sortedMovieYears={sortedMovieYears} />
+      <NavList years={years} />
     </Nav>
   );
 };
