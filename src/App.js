@@ -49,7 +49,7 @@ function App() {
   };
 
   const getPerson = async (id) => {
-    const url = `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+    const url = `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&append_to_response=movie_credits`;
     const data = await fetchData(url);
     setIsSearched(false);
     return data;

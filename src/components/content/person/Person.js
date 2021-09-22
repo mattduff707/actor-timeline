@@ -4,10 +4,10 @@ import Details from './details/Details';
 import Navbar from './timelineNav/Navbar';
 import TimeLine from './timeline/TimeLine';
 
-const ActivePerson = () => {
+const Person = ({ activePerson }) => {
   return (
     <Wrapper>
-      <Details />
+      <Details activePerson={activePerson} />
       <Navbar />
       <TimeLine />
     </Wrapper>
@@ -20,4 +20,4 @@ const Wrapper = styled.div`
   /* border: 4px solid red; */
 `;
 
-export default ActivePerson;
+export default Person;

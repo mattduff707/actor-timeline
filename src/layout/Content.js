@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 // import SearchResultsList from '../components/content/searchResults/SearchResultsList';
-import ActivePerson from '../components/content/activePerson/ActivePerson';
+import Person from '../components/content/person/Person';
 import SearchResultsList from '../components/content/searchResults/SearchResultsList';
 
 const Content = ({ isSearched, isLoading, error, searchResults, getPerson }) => {
@@ -17,7 +17,7 @@ const Content = ({ isSearched, isLoading, error, searchResults, getPerson }) => 
     return <SearchResultsList searchResults={searchResults} setActivePerson={setActivePerson} getPerson={getPerson} />;
   }
   if (activePerson) {
-    return <ActivePerson activePerson={activePerson} />;
+    return <Person activePerson={activePerson} />;
   }
 
   return <p>Search for someone!</p>;
