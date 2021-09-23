@@ -3,29 +3,32 @@ import styled from 'styled-components';
 import Heading from '../../../Heading';
 import MoviePoster from './MoviePoster';
 import { imageUrl } from '../../../../constants';
+import { reformatDate } from '../../../../constants';
 
 const MovieDetailsBox = ({ isLeft, isOpen, role, age }) => {
+  const { title, poster_path: posterPath, release_date: releaseDate, character, vote_average: voteAverage } = role;
+  const unavailable = 'Unavailable';
   return (
     <Wrapper isOpen={isOpen} isLeft={isLeft}>
       {!isLeft && <Connector isOpen={isOpen} />}
       <DetailsBox isOpen={isOpen}>
-        {!isLeft && <MoviePoster src={imageUrl + role.poster_path} alt={role.title} isPoster={role.poster_path} />}
+        {!isLeft && <MoviePoster src={imageUrl + posterPath} alt={title} isPoster={posterPath} />}
         <Container isLeft={isLeft}>
-          <MovieTitle>{role.title}</MovieTitle>
+          <MovieTitle>{title}</MovieTitle>
           <Detail>
-            <Highlight>Release:</Highlight> {role.release_date}
+            <Highlight>Release:</Highlight> {reformatDate(releaseDate)}
           </Detail>
           <Detail>
             <Highlight>Age:</Highlight> {age}
           </Detail>
           <Detail>
-            <Highlight>Character:</Highlight> {role.character}
+            <Highlight>Character:</Highlight> {character ? character : unavailable}
           </Detail>
           <Detail>
-            <Highlight>Rating:</Highlight> {role.vote_average}
+            <Highlight>Rating:</Highlight> {voteAverage}
           </Detail>
         </Container>
-        {isLeft && <MoviePoster src={imageUrl + role.poster_path} alt={role.title} isPoster={role.poster_path} />}
+        {isLeft && <MoviePoster src={imageUrl + posterPath} alt={title} isPoster={posterPath} />}
       </DetailsBox>
       {isLeft && <Connector isOpen={isOpen} />}
     </Wrapper>
