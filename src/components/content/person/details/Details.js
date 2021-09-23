@@ -3,11 +3,10 @@ import styled from 'styled-components';
 import DetailsImage from './DetailsImage';
 import DetailsText from './DetailsText';
 
-const Details = ({ activePerson }) => {
-  const { name, profile_path, imdb_id, birthday, place_of_birth, movie_credits, deathday } = activePerson;
+const Details = ({ activePerson, sortedRoles }) => {
+  const { name, profile_path, imdb_id, birthday, place_of_birth, deathday } = activePerson;
   const averageRating =
-    movie_credits.cast.map((credit) => credit.vote_average).reduce((acc, currentVal) => acc + currentVal) /
-    movie_credits.cast.length;
+    sortedRoles.map((credit) => credit.vote_average).reduce((acc, currentVal) => acc + currentVal) / sortedRoles.length;
   return (
     <Wrapper>
       <DetailsImage picture={profile_path} />
@@ -17,7 +16,7 @@ const Details = ({ activePerson }) => {
         birthday={birthday}
         deathday={deathday}
         placeOfBirth={place_of_birth}
-        movieCredits={movie_credits.cast}
+        movieCredits={sortedRoles}
         averageRating={averageRating}
       />
     </Wrapper>
