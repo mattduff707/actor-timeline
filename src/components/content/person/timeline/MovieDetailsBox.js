@@ -5,13 +5,14 @@ import MoviePoster from './MoviePoster';
 import { imageUrl } from '../../../../constants';
 import { reformatDate } from '../../../../constants';
 
-const MovieDetailsBox = ({ isLeft, isOpen, role, age }) => {
+const MovieDetailsBox = ({ isLeft, isOpen, role, age, handleClick }) => {
   const { title, poster_path: posterPath, release_date: releaseDate, character, vote_average: voteAverage } = role;
   const unavailable = 'Unavailable';
   return (
     <Wrapper isOpen={isOpen} isLeft={isLeft}>
       {!isLeft && <Connector isOpen={isOpen} />}
       <DetailsBox isOpen={isOpen}>
+        {isLeft && <CloseBtn onClick={handleClick}>X</CloseBtn>}
         {!isLeft && <MoviePoster src={imageUrl + posterPath} alt={title} isPoster={posterPath} />}
         <Container isLeft={isLeft}>
           <MovieTitle>{title}</MovieTitle>
@@ -29,6 +30,7 @@ const MovieDetailsBox = ({ isLeft, isOpen, role, age }) => {
           </Detail>
         </Container>
         {isLeft && <MoviePoster src={imageUrl + posterPath} alt={title} isPoster={posterPath} />}
+        {!isLeft && <CloseBtn onClick={handleClick}>X</CloseBtn>}
       </DetailsBox>
       {isLeft && <Connector isOpen={isOpen} />}
     </Wrapper>
@@ -72,7 +74,8 @@ const Container = styled.div`
 
   height: 100%;
   /* border: 2px solid blue; */
-  margin: ${(props) => (props.isLeft ? '0px 10px 0px 0px' : '0px 0px 0px 10px')};
+  padding-top: 20px;
+  margin: 0px 10px 0px 10px;
 `;
 const MovieTitle = styled(Heading)`
   align-self: center;
@@ -93,6 +96,17 @@ const Detail = styled.p`
 `;
 const Highlight = styled.span`
   font-weight: 600;
+`;
+const CloseBtn = styled.button`
+  font-size: 1.3rem;
+  background-color: transparent;
+  border: none;
+  align-self: flex-start;
+  padding: 5px 0px;
+  color: ${(props) => props.theme.colors.primaryDark};
+  &:hover {
+    color: ${(props) => props.theme.colors.highlightPrimary};
+  }
 `;
 
 export default MovieDetailsBox;

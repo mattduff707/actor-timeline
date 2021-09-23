@@ -15,7 +15,7 @@ const DetailsText = ({ name, placeOfBirth, birthday, imdb, movieCredits, average
       </Detail>
       {deathday && (
         <Detail>
-          <Label>Died:</Label> {deathday} - (Age: {calculateAge(birthday, deathday)})
+          <Label>Died:</Label> {reformatDate(deathday)} (Age: {calculateAge(birthday, deathday)})
         </Detail>
       )}
       <Detail>

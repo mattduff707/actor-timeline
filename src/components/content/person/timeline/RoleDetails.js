@@ -14,7 +14,7 @@ const RoleDetails = ({ isLeft, role, age }) => {
   return (
     <Wrapper>
       {isLeft ? (
-        <MovieDetailsBox age={age} isOpen={isOpen} isLeft={isLeft} role={role} />
+        <MovieDetailsBox handleClick={handleClick} age={age} isOpen={isOpen} isLeft={isLeft} role={role} />
       ) : (
         <MovieLabel age={age} role={role} isOpen={isOpen} />
       )}
@@ -24,7 +24,7 @@ const RoleDetails = ({ isLeft, role, age }) => {
       {isLeft ? (
         <MovieLabel age={age} role={role} isOpen={isOpen} isLeft={isLeft} />
       ) : (
-        <MovieDetailsBox age={age} role={role} isOpen={isOpen} />
+        <MovieDetailsBox handleClick={handleClick} age={age} role={role} isOpen={isOpen} />
       )}
     </Wrapper>
   );
