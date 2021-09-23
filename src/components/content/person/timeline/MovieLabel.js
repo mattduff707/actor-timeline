@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import Heading from '../../../Heading';
+import { reformatDate } from '../../../../constants';
 const MovieLabel = ({ isLeft, isOpen, role, age }) => {
+  const { title, release_date: releaseDate } = role;
   return (
     <Wrapper isOpen={isOpen} isLeft={isLeft}>
       <MovieTitle isOpen={isOpen} as="h3">
-        {role.title}
+        {title}
       </MovieTitle>
       <MovieYear isOpen={isOpen} as="h4">
-        {role.release_date} <br />
+        {reformatDate(releaseDate)} <br />
         Age: {age}
       </MovieYear>
     </Wrapper>
