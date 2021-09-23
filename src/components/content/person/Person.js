@@ -24,12 +24,12 @@ const Person = ({ activePerson }) => {
   const sortedRoles = getSortedRoles(roles);
   return (
     <Wrapper>
-      <Details activePerson={activePerson} />
+      <Details activePerson={activePerson} sortedRoles={sortedRoles} />
       <Navbar years={years} />
       <TimeLine
         years={years}
         sortedRoles={sortedRoles}
-        lineLength={sortedRoles.length - 1 + years.length}
+        lineLength={sortedRoles.length + years.length - 1}
         birthday={activePerson.birthday}
       />
     </Wrapper>

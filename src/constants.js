@@ -21,3 +21,7 @@ export function calculateAge(dob, date) {
 
   return age;
 }
+
+export function reformatDate(date) {
+  return new Date(date).toLocaleDateString();
+}
