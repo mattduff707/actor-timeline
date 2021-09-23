@@ -4,7 +4,7 @@ import DetailsImage from './DetailsImage';
 import DetailsText from './DetailsText';
 
 const Details = ({ activePerson }) => {
-  const { name, profile_path, imdb_id, birthday, place_of_birth, movie_credits } = activePerson;
+  const { name, profile_path, imdb_id, birthday, place_of_birth, movie_credits, deathday } = activePerson;
   const averageRating =
     movie_credits.cast.map((credit) => credit.vote_average).reduce((acc, currentVal) => acc + currentVal) /
     movie_credits.cast.length;
@@ -15,6 +15,7 @@ const Details = ({ activePerson }) => {
         name={name}
         imdb={imdb_id}
         birthday={birthday}
+        deathday={deathday}
         placeOfBirth={place_of_birth}
         movieCredits={movie_credits.cast}
         averageRating={averageRating}
