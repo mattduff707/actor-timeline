@@ -3,15 +3,16 @@ import styled from 'styled-components';
 // import SearchResultsList from '../components/content/searchResults/SearchResultsList';
 import Person from '../components/content/person/Person';
 import SearchResultsList from '../components/content/searchResults/SearchResultsList';
+import Heading from '../components/Heading';
 
 const Content = ({ isSearched, isLoading, error, searchResults, getPerson }) => {
   const [activePerson, setActivePerson] = useState(false);
 
   if (isLoading) {
-    return <Loading>Loading...</Loading>;
+    return <PlaceHolder>Loading...</PlaceHolder>;
   }
   if (error) {
-    return <p>Error</p>;
+    return <PlaceHolder>Error!</PlaceHolder>;
   }
   if (isSearched) {
     return <SearchResultsList searchResults={searchResults} setActivePerson={setActivePerson} getPerson={getPerson} />;
@@ -20,9 +21,14 @@ const Content = ({ isSearched, isLoading, error, searchResults, getPerson }) => 
     return <Person activePerson={activePerson} />;
   }
 
-  return <p>Search for someone!</p>;
+  return <PlaceHolder tag="h2">Search for any actor to see the timeline of their career!</PlaceHolder>;
 };
 
-const Loading = styled.p``;
+const PlaceHolder = styled(Heading)`
+  width: 100%;
+  padding-top: 10px;
+  color: ${(props) => props.theme.colors.primaryDark};
+  text-align: center;
+`;
 
 export default Content;

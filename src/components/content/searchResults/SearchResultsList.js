@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import SearchResult from './SearchResult';
+import Heading from '../../Heading';
 
 const SearchResultsList = ({ searchResults, getPerson, setActivePerson }) => {
+  if (searchResults.length === 0) {
+    return <PlaceHolder>No Results...</PlaceHolder>;
+  }
   return (
     <Wrapper>
       <List>
@@ -27,6 +31,14 @@ const Wrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 100px;
+`;
+const PlaceHolder = styled(Heading)`
+  font-size: 1.4rem;
+  color: ${(props) => props.theme.colors.primaryDark};
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
 `;
 const List = styled.ul`
   display: flex;
