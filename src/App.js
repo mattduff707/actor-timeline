@@ -65,7 +65,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Wrapper>
+      <Wrapper id="top">
         <GlobalStyle />
         <Header handleSearch={handleSearch} />
         <main>

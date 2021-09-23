@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import NavList from './NavList';
+import Controls from './Controls';
 
 const Navbar = ({ years }) => {
   return (
     <Nav>
       <NavList years={years} />
+      <Controls />
     </Nav>
   );
 };
