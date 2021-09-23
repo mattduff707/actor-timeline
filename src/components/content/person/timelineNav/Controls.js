@@ -5,10 +5,8 @@ import Btn from '../../../Btn';
 const Controls = () => {
   return (
     <Wrapper>
-      <Container>
-        <ControlBtn>Back to top</ControlBtn>
-        <ControlBtn>Show All</ControlBtn>
-        <ControlBtn>Close All</ControlBtn>
+      <Container tabIndex="-1" href="#top">
+        <ControlBtn href="#top">Back to top</ControlBtn>
       </Container>
     </Wrapper>
   );
@@ -17,13 +15,13 @@ const Controls = () => {
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
 `;
-const Container = styled.div`
+const Container = styled.a`
   display: flex;
   justify-content: center;
   background-color: ${(props) => props.theme.colors.primaryDark};
   padding: 10px 0px;
+  text-decoration: none;
 `;
 
 const ControlBtn = styled(Btn)`
