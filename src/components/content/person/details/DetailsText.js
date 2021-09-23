@@ -4,15 +4,20 @@ import Heading from '../../../Heading';
 import Btn from '../../../Btn';
 import { calculateAge } from '../../../../constants';
 
-const DetailsText = ({ name, placeOfBirth, birthday, imdb, movieCredits, averageRating }) => {
+const DetailsText = ({ name, placeOfBirth, birthday, imdb, movieCredits, averageRating, deathday }) => {
   const age = calculateAge(birthday, new Date());
   return (
     <Wrapper>
       <Name tag="h2">{name}</Name>
       <Detail>
-        <Label>Born:</Label> {birthday} (Age: {age})
+        <Label>Born:</Label> {birthday} {!deathday && `(Age: ${age})`}
         <br /> {placeOfBirth}
       </Detail>
+      {deathday && (
+        <Detail>
+          <Label>Died:</Label> {deathday} (Age: {calculateAge(birthday, deathday)})
+        </Detail>
+      )}
       <Detail>
         <Label>Roles:</Label> {movieCredits.length}
       </Detail>
