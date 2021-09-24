@@ -10,14 +10,9 @@ const MovieDetailsBox = ({ isLeft, isOpen, role, age, handleClick }) => {
   const unavailable = 'Unavailable';
   return (
     <Wrapper isOpen={isOpen} isLeft={isLeft}>
-      {!isLeft && <Connector isOpen={isOpen} />}
-      <DetailsBox isOpen={isOpen}>
-        {isLeft && (
-          <CloseBtn aria-label={`Close details about ${title}`} onClick={handleClick}>
-            X
-          </CloseBtn>
-        )}
-        {!isLeft && <MoviePoster src={imageUrl + posterPath} alt={title} isPoster={posterPath} />}
+      <Connector isLeft={isLeft} isOpen={isOpen} />
+      <DetailsBox isLeft={isLeft} isOpen={isOpen}>
+        <MoviePoster isLeft={isLeft} src={imageUrl + posterPath} alt={title} isPoster={posterPath} />
         <Container isLeft={isLeft}>
           <MovieTitle>{title}</MovieTitle>
           <Detail>
@@ -33,14 +28,10 @@ const MovieDetailsBox = ({ isLeft, isOpen, role, age, handleClick }) => {
             <Highlight>Rating:</Highlight> {voteAverage}
           </Detail>
         </Container>
-        {isLeft && <MoviePoster src={imageUrl + posterPath} alt={title} isPoster={posterPath} />}
-        {!isLeft && (
-          <CloseBtn aria-label={`Close details about ${title}`} onClick={handleClick}>
-            X
-          </CloseBtn>
-        )}
+        <CloseBtn isLeft={isLeft} aria-label="Close details" onClick={handleClick}>
+          X
+        </CloseBtn>
       </DetailsBox>
-      {isLeft && <Connector isOpen={isOpen} />}
     </Wrapper>
   );
 };
@@ -60,6 +51,7 @@ const Connector = styled.div`
   width: 60px;
   background-color: ${(props) => props.theme.colors.primaryDark};
   display: ${(props) => (props.isOpen ? 'visible' : 'none')};
+  order: ${(props) => (props.isLeft ? '2' : '1')};
   @media (max-width: 1024px) {
     display: none;
   }
@@ -73,16 +65,17 @@ const DetailsBox = styled.div`
   padding: 0px 10px;
   max-width: 500px;
   overflow-y: auto;
+  order: ${(props) => (props.isLeft ? '1' : '2')};
   /* max-width: 400px; */
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-
+  order: 2;
   height: 100%;
   /* border: 2px solid blue; */
-  padding-top: 20px;
+  padding-top: 24px;
   margin: 0px 10px 0px 10px;
 `;
 const MovieTitle = styled(Heading)`
@@ -111,9 +104,14 @@ const CloseBtn = styled.button`
   border: none;
   align-self: flex-start;
   padding: 5px 0px;
+  font-weight: bolder;
+
   color: ${(props) => props.theme.colors.primaryDark};
   &:hover {
     color: ${(props) => props.theme.colors.highlightPrimary};
+  }
+  @media (min-width: 1024px) {
+    order: ${(props) => (props.isLeft ? '1' : '3')};
   }
 `;
 

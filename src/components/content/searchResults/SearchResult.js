@@ -10,7 +10,7 @@ const SearchResult = ({ name, picture, personId, getPerson, setActivePerson }) =
   return (
     <li>
       <ButtonWrapper aria-label={`Link to ${name} timeline`} onClick={handleClick}>
-        {picture ? <Image src={imageUrl + picture} /> : <NoPicture>No Picture</NoPicture>}
+        {picture ? <Image src={imageUrl + picture} alt={`${name} headshot`} /> : <NoPicture>No Picture</NoPicture>}
         <Name>{name}</Name>
       </ButtonWrapper>
     </li>

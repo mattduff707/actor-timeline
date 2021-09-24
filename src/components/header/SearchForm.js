@@ -13,6 +13,7 @@ const SearchForm = ({ handleSearch }) => {
 
 const WrapperForm = styled.form`
   display: flex;
+  align-items: stretch;
 `;
 const SearchBtn = styled(Btn)`
   @media (max-width: 500px) {
