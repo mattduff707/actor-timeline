@@ -26,10 +26,11 @@ const Wrapper = styled.header`
 const Title = styled(Heading)`
   font-size: 3rem;
   color: ${(props) => props.theme.colors.highlightPrimary};
-  padding-bottom: 10px;
+
+  margin-bottom: 10px;
   @media (max-width: 500px) {
     font-size: 1.8rem;
-    padding-bottom: 5px;
+    margin-bottom: 5px;
   }
 `;
 

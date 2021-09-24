@@ -68,7 +68,7 @@ function App() {
       <Wrapper id="top">
         <GlobalStyle />
         <Header handleSearch={handleSearch} />
-        <main>
+        <main aria-live="polite">
           <Content
             error={error}
             isLoading={isLoading}

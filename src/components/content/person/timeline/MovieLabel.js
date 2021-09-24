@@ -4,11 +4,11 @@ import { reformatDate } from '../../../../constants';
 const MovieLabel = ({ isLeft, isOpen, role, age }) => {
   const { title, release_date: releaseDate } = role;
   return (
-    <Wrapper isOpen={isOpen} isLeft={isLeft}>
-      <MovieTitle isOpen={isOpen} as="h3">
+    <Wrapper aria-hidden={true} isOpen={isOpen} isLeft={isLeft}>
+      <MovieTitle isOpen={isOpen} tag="h3">
         {title}
       </MovieTitle>
-      <MovieYear isOpen={isOpen} as="h4">
+      <MovieYear isOpen={isOpen}>
         {reformatDate(releaseDate)} <br />
         Age: {age}
       </MovieYear>
@@ -33,7 +33,7 @@ const MovieTitle = styled(Heading)`
   color: ${(props) => props.theme.colors.highlightPrimary};
   display: ${(props) => (props.isOpen ? 'none' : 'visible')};
 `;
-const MovieYear = styled(Heading)`
+const MovieYear = styled.p`
   font-size: 1.1rem;
   color: ${(props) => props.theme.colors.primaryDark};
   display: ${(props) => (props.isOpen ? 'none' : 'visible')};

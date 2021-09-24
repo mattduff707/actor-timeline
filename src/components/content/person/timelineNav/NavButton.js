@@ -5,7 +5,7 @@ import Btn from '../../../Btn';
 const NavButton = ({ year }) => {
   return (
     <YearLink tabIndex="-1" href={`#${year}`}>
-      <YearBtn>{year}</YearBtn>
+      <YearBtn label={`Skip to year ${year}`}>{year}</YearBtn>
     </YearLink>
   );
 };

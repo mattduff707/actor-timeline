@@ -1,8 +1,21 @@
 import styled from 'styled-components';
 
 const searchInput = ({ className }) => {
-  return <SearchBar autoComplete="off" name="search" className={className} type="text"></SearchBar>;
+  return (
+    <>
+      <SearchLabel for="search">Name:</SearchLabel>
+      <SearchBar autoComplete="off" name="search" id="search" className={className} type="text"></SearchBar>
+    </>
+  );
 };
+
+const SearchLabel = styled.label`
+  color: ${(props) => props.theme.colors.primaryLight};
+  padding-right: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+`;
 
 const SearchBar = styled.input`
   background-color: ${(props) => props.theme.colors.background};

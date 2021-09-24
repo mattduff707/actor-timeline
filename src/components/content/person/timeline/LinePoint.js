@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const LinePoint = ({ handleClick, isOpen }) => {
+const LinePoint = ({ handleClick, isOpen, role }) => {
   return (
     <Wrapper isOpen={isOpen}>
-      <Point isOpen={isOpen} onClick={handleClick} />
+      <Point aria-label={`Toggle details about movie ${role.title}`} isOpen={isOpen} onClick={handleClick} />
     </Wrapper>
   );
 };

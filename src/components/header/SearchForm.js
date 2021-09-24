@@ -4,7 +4,7 @@ import SearchInput from './SearchInput';
 
 const SearchForm = ({ handleSearch }) => {
   return (
-    <WrapperForm onSubmit={handleSearch}>
+    <WrapperForm aria-label="Search for Actors" onSubmit={handleSearch}>
       <SearchInput />
       <SearchBtn type="submit">Search</SearchBtn>
     </WrapperForm>
@@ -13,6 +13,7 @@ const SearchForm = ({ handleSearch }) => {
 
 const WrapperForm = styled.form`
   display: flex;
+  align-items: stretch;
 `;
 const SearchBtn = styled(Btn)`
   @media (max-width: 500px) {
