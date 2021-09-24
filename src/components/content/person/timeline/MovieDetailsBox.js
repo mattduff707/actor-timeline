@@ -12,7 +12,11 @@ const MovieDetailsBox = ({ isLeft, isOpen, role, age, handleClick }) => {
     <Wrapper isOpen={isOpen} isLeft={isLeft}>
       {!isLeft && <Connector isOpen={isOpen} />}
       <DetailsBox isOpen={isOpen}>
-        {isLeft && <CloseBtn onClick={handleClick}>X</CloseBtn>}
+        {isLeft && (
+          <CloseBtn aria-label={`Close details about ${title}`} onClick={handleClick}>
+            X
+          </CloseBtn>
+        )}
         {!isLeft && <MoviePoster src={imageUrl + posterPath} alt={title} isPoster={posterPath} />}
         <Container isLeft={isLeft}>
           <MovieTitle>{title}</MovieTitle>
@@ -30,7 +34,11 @@ const MovieDetailsBox = ({ isLeft, isOpen, role, age, handleClick }) => {
           </Detail>
         </Container>
         {isLeft && <MoviePoster src={imageUrl + posterPath} alt={title} isPoster={posterPath} />}
-        {!isLeft && <CloseBtn onClick={handleClick}>X</CloseBtn>}
+        {!isLeft && (
+          <CloseBtn aria-label={`Close details about ${title}`} onClick={handleClick}>
+            X
+          </CloseBtn>
+        )}
       </DetailsBox>
       {isLeft && <Connector isOpen={isOpen} />}
     </Wrapper>

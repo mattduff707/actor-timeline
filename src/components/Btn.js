@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Btn = ({ handleClick, type, children, className, tabIndex }) => {
+const Btn = ({ handleClick, type, children, className, tabIndex, label }) => {
   return (
-    <StyledBtn onClick={handleClick} type={type} className={className} tabIndex={tabIndex}>
+    <StyledBtn aria-label={label} onClick={handleClick} type={type} className={className} tabIndex={tabIndex}>
       {children}
     </StyledBtn>
   );

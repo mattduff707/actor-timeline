@@ -4,7 +4,7 @@ import SearchInput from './SearchInput';
 
 const SearchForm = ({ handleSearch }) => {
   return (
-    <WrapperForm onSubmit={handleSearch}>
+    <WrapperForm aria-label="Search for Actors" onSubmit={handleSearch}>
       <SearchInput />
       <SearchBtn type="submit">Search</SearchBtn>
     </WrapperForm>

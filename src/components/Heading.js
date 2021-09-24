@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Heading = ({ children, tag, className }) => {
+const Heading = ({ children, tag, className, label }) => {
   return (
-    <StyledHeading className={className} as={tag}>
+    <StyledHeading aria-label={label} className={className} as={tag}>
       {children}
     </StyledHeading>
   );

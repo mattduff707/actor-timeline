@@ -19,7 +19,7 @@ const RoleDetails = ({ isLeft, role, age }) => {
         <MovieLabel age={age} role={role} isOpen={isOpen} />
       )}
 
-      <LinePoint isOpen={isOpen} handleClick={handleClick} />
+      <LinePoint role={role} isOpen={isOpen} handleClick={handleClick} />
 
       {isLeft ? (
         <MovieLabel age={age} role={role} isOpen={isOpen} isLeft={isLeft} />
