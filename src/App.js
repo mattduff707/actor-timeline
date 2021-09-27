@@ -46,8 +46,9 @@ function App() {
 
     if (val !== '') {
       const url = `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${newSearchVal}&page=1&include_adult=false`;
+
       const response = await fetchData(url);
-      console.log(response);
+
       if (response) {
         const { results } = response;
         setSearchResults(() => results);
