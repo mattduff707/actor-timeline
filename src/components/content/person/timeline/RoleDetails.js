@@ -33,7 +33,7 @@ const RoleDetails = ({ isLeft, role, age }) => {
 const Wrapper = styled.div`
   width: 100%;
   /* border: 2px solid green; */
-  height: 240px;
+  height: ${(props) => `${props.theme.roleHeight}px`};
   display: flex;
   align-content: center;
   justify-content: center;

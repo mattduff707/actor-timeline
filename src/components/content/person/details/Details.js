@@ -6,7 +6,10 @@ import DetailsText from './DetailsText';
 const Details = ({ activePerson, sortedRoles }) => {
   const { name, profile_path, imdb_id, birthday, place_of_birth, deathday } = activePerson;
   const averageRating =
-    sortedRoles.map((credit) => credit.vote_average).reduce((acc, currentVal) => acc + currentVal) / sortedRoles.length;
+    sortedRoles.length > 0
+      ? sortedRoles.map((credit) => credit.vote_average).reduce((acc, currentVal) => acc + currentVal) /
+        sortedRoles.length
+      : 0;
   return (
     <Wrapper>
       <DetailsImage picture={profile_path} />

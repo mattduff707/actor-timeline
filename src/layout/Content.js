@@ -21,7 +21,7 @@ const Content = ({ isSearched, isLoading, error, searchResults, getPerson }) => 
     return <Person activePerson={activePerson} />;
   }
 
-  return <PlaceHolder tag="h2">Search for any actor to see the timeline of their career!</PlaceHolder>;
+  return <PlaceHolder tag="h2">Search for any actor to see the timeline of their movie career!</PlaceHolder>;
 };
 
 const PlaceHolder = styled(Heading)`

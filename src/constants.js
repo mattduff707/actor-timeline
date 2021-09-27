@@ -10,6 +10,7 @@ export const theme = {
   fonts: {
     primary: "'Lora', serif",
   },
+  roleHeight: 240,
 };
 
 export const imageUrl = `https://image.tmdb.org/t/p/original`;

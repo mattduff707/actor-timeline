@@ -6,7 +6,7 @@ const Line = ({ length }) => {
 
 const TimeLine = styled.div`
   width: 6px;
-  height: ${(props) => `${props.length * 240}px`};
+  height: ${(props) => `${props.length * props.theme.roleHeight}px`};
   background-color: ${(props) => props.theme.colors.primaryDark};
   position: absolute;
   top: 120px;
