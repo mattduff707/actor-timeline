@@ -13,7 +13,7 @@
 - Search people fetch from API: [Code Snippet](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/App.js#L20-L58)
 - Get selected actor's details and movie credits: [Definition](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/App.js#L60-L65) and [Implementation](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/components/content/searchResults/SearchResult.js#L5-L18)
 - Examples of data manipulation: [Actor Details](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/components/content/person/details/Details.js#L6-L27) and [Movie Roles](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/components/content/person/timeline/MovieDetailsBox.js#L9-L37)
-- Flexbox order property used to make screen reader flow consistent [Code Snippet](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/components/content/person/timeline/MovieDetailsBox.js#L72-L116)
+- Flexbox order property used to make screen reader flow consistent [Code Snippet](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/components/content/person/timeline/MovieDetailsBox.js#L39-L116)
 
 ---
 
