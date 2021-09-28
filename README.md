@@ -2,18 +2,18 @@
 
 - Sketched a rough design
 - Created a basic outline on Figma
-- Created a component diagram to visualize data flow: [Screenshot of chart]()
-- Broke down the UI design and software design into tasks on a kanban board: [Screenshot of tasks]()
+- Created a component diagram to visualize data flow: [Screenshot of chart](https://github.com/mattduff707/actor-timeline/blob/main/public/images/timelineChart.jpg)
+- Broke down the UI design and software design into tasks on a kanban board: [Screenshot of tasks](https://github.com/mattduff707/actor-timeline/blob/main/public/images/kanban.PNG)
 - Used feature branches and pull requests
 
 ---
 
 ## Key Features
 
-- Search people fetch from API: [Code Snippet]()
-- Get selected actor's details and movie credits: [Code Snippet]()
-- Examples of data manipulation: [Actor Details]() and [Movie Roles]()
-- Flexbox order property used to make screen reader flow consistent [Code Snippet]()
+- Search people fetch from API: [Code Snippet](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/App.js#L20-L58)
+- Get selected actor's details and movie credits: [Definition](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/App.js#L60-L65) and [Implementation](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/components/content/searchResults/SearchResult.js#L5-L18)
+- Examples of data manipulation: [Actor Details](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/components/content/person/details/Details.js#L6-L27) and [Movie Roles](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/components/content/person/timeline/MovieDetailsBox.js#L9-L37)
+- Flexbox order property used to make screen reader flow consistent [Code Snippet](https://github.com/mattduff707/actor-timeline/blob/08305d37fae578918d6ac5a587901e4a061f751f/src/components/content/person/timeline/MovieDetailsBox.js#L72-L116)
 
 ---
 
@@ -28,7 +28,7 @@
 
 ## Potential Changes
 
-- Always some refactoring to do: [Code Snippet]()
+- Change the way the "line" for the timeline is rendered. Currently it is a centralized absolutely positioned div whose height is determined by a fixed height value variable multiplied by the total components on the line. I would instead replace it with a centralized line within each component that connects to create what seems like one long line.
 - I would like to find a way to include an actor's TV credits in the timeline.
 - Create a test-suite using Testing Library
 
