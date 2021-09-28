@@ -1,3 +1,39 @@
+## Process I followed
+
+- Sketched a rough design
+- Created a basic outline on Figma
+- Created a component diagram to visualize data flow: [Screenshot of chart]()
+- Broke down the UI design and software design into tasks on a kanban board: [Screenshot of tasks]()
+- Used feature branches and pull requests
+
+---
+
+## Key Features
+
+- Search people fetch from API: [Code Snippet]()
+- Get selected actor's details and movie credits: [Code Snippet]()
+- Examples of data manipulation: [Actor Details]() and [Movie Roles]()
+- Flexbox order property used to make screen reader flow consistent [Code Snippet]()
+
+---
+
+## Why I built it this way
+
+- No state library was necessary due to the simplicity of the state within this app. Redux would be a bit overkill so useState hooks were all that was needed.
+- I wanted to create a nice visual overview of an actors career without getting bogged down with biographies about the actor or movie synopsis on each role details component.
+- No surprise that I went with styled-components on this one. It's my go-to. The modularity, auto-prefixing, and seamless integration into javascript makes it a dream to work with.
+- I tested this with a screen reader to confirm that there was an accessible flow for non-sighted users.
+
+---
+
+## Potential Changes
+
+- Always some refactoring to do: [Code Snippet]()
+- I would like to find a way to include an actor's TV credits in the timeline.
+- Create a test-suite using Testing Library
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
